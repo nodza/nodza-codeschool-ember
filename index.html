@@ -14,7 +14,7 @@
       <div class='navbar navbar-default navbar-fixed-top'>
         <div class='container'>
           {{#link-to 'index' class='navbar-brand'}}
-            <img src='http://courseware.codeschool.com/ember/images/logo.png' alt='logo' height='34' width='224' />
+            <img src='images/logo.png' alt='logo' height='34' width='224' />
           {{/link-to}}
           <ul class='nav navbar-nav navbar-right' role="navigation">
               <li>{{#link-to 'index'}}Home{{/link-to}}</li>
@@ -33,7 +33,8 @@
 
     <script type="text/x-handlebars" data-template-name="index">
      <h1>Welcome to The Flint &amp; Flame!</h1>
-        <p>There are {{productsCount}} products available.</p>
+        <br/>
+       <img {{bind-attr src="product_icon"}} alt="Products" /> <span class="product-count">There are {{productsCount}} products available.</span> &nbsp;&nbsp;&nbsp;<span class="meta-italic">Last updated {{time}}</span>
     </script>
 
     <script type="text/x-handlebars" data-template-name="about">

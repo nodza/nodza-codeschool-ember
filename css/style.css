@@ -2,3 +2,22 @@
 .ember-application {
     margin: 20px;
 }
+.navbar-default {
+    background-color: #352614;
+    border-color: #352614;
+    margin-bottom: 10px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #352614;
+    background-color: #DAD1B0;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #DAD1B0;
+}
+.navbar-brand {
+    float: left;
+    padding: 8px 10px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 20px;
+}

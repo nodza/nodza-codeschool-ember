@@ -13,3 +13,11 @@ App.IndexController = Ember.Controller.extend({
         return (new Date()).toDateString()
     }.property()
 });
+
+App.AboutController = Ember.Controller.extend({
+    contactName: "Noel Hwande",
+    avatar: 'images/avatar.png',
+    open: function() {
+        return ((new Date()).getDay() === 1) ? "Sorry, we are closed today." : "Please come in. We're open";
+    }.property()
+});

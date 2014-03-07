@@ -54,7 +54,9 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-7">
-                    <h3>{{title}}</h3>
+                    {{#link-to 'product' this}}
+                    <h2>{{title}}</h2>
+                    {{/link-to}}
                     <p class="product-description">{{description}}</p>
                     <br>
                     <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
@@ -64,6 +66,23 @@
             <br>
         {{/each}}
         </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="product">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <img {{bind-attr src="image"}} />
+                </div>
+                <div class="col-md-7">
+                    <h1>{{title}}</h1>
+                    <p class="product-description">{{description}}</p>
+                    <br>
+                    <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
+                </div>
+            </div>
+            <br>
+            <br>
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>

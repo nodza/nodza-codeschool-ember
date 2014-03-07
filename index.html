@@ -20,6 +20,7 @@
               <li>{{#link-to 'index'}}Home{{/link-to}}</li>
               <!-- //<li><a href='#/store'>Store</a></li> -->
               <li>{{#link-to 'about'}}About{{/link-to}}</li>
+              <li>{{#link-to 'products'}}Products{{/link-to}}</li>
           </ul>
         </div>
       </div>
@@ -41,6 +42,28 @@
      <h1>About the Spirits</h1>
         <img {{bind-attr src="avatar"}} />
         <p>Welcome back, {{contactName}}. {{open}}</p>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="products">
+        <h1>Our Products</h1>
+        <ul class="list-unstyled col-md-8">
+        {{#each}}
+            <li class="row">
+                <div class="col-md-4">
+                <img {{bind-attr src="image"}} />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <h3>{{title}}</h3>
+                    <p class="product-description">{{description}}</p>
+                    <br>
+                    <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
+                </div>
+            </li>
+            <br>
+            <br>
+        {{/each}}
+        </ul>
     </script>
 
     <script src="js/libs/jquery-1.10.2.js"></script>

@@ -44,36 +44,37 @@
         <p>Welcome back, {{contactName}}. {{open}}</p>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="products/index">
+        <div class="well">
+            <p class="lead text-center">Select a product on the left.</p>
+        </div>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="products">
         <h1>Our Products</h1>
-        <ul class="list-unstyled col-md-8">
-        {{#each}}
-            <li class="row">
-                <div class="col-md-4">
-                <img {{bind-attr src="image"}} />
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="list-group">
+                    {{#each}}
+                        {{#link-to 'product' this classNames='list-group-item'}}
+                            {{title}}
+                        {{/link-to}}
+                    {{/each}}
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-7">
-                    {{#link-to 'product' this}}
-                    <h2>{{title}}</h2>
-                    {{/link-to}}
-                    <p class="product-description">{{description}}</p>
-                    <br>
-                    <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
-                </div>
-            </li>
-            <br>
-            <br>
-        {{/each}}
-        </ul>
+            </div>
+
+            <div class="col-sm-9">
+                {{outlet}}
+            </div>
+        </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="product">
             <div class="row">
-                <div class="col-md-1"></div>
                 <div class="col-md-3">
                     <img {{bind-attr src="image"}} />
                 </div>
+                <div class="col-md-1"></div>
                 <div class="col-md-7">
                     <h1>{{title}}</h1>
                     <p class="product-description">{{description}}</p>

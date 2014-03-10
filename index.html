@@ -80,6 +80,18 @@
                     <p class="product-description">{{description}}</p>
                     <br>
                     <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
+                    <br/>
+                    <hr/>
+                    <h3>Reviews</h3>
+                    <ul class="list-unstyled">
+                        {{#each reviews}}
+                        <li>{{text}}</li>
+                        {{else}}
+                         <li>
+                             <p class="text-muted"><em>There are no reviews yet. Be the first to write one.</em></p>
+                         </li>
+                        {{/each}}
+                    </ul>
                 </div>
             </div>
             <br>

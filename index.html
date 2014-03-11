@@ -35,7 +35,7 @@
     <script type="text/x-handlebars" data-template-name="index">
      <h1>Welcome to The Flint &amp; Flame!</h1>
         <br/>
-       <img {{bind-attr src="product_icon"}} alt="Products" /> <span class="product-count">There are {{productsCount}} products available.</span> &nbsp;&nbsp;&nbsp;<span class="meta-italic">Last updated {{time}}</span>
+       <img {{bind-attr src="product_icon"}} alt="Products" /> <span class="product-count">There are {{#link-to 'products'}}{{productsCount}} products{{/link-to}} available.</span> &nbsp;&nbsp;&nbsp;<span class="meta-italic">Last updated {{time}}</span>
     </script>
 
     <script type="text/x-handlebars" data-template-name="about">

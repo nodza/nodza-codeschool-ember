@@ -36,6 +36,17 @@
      <h1>Welcome to The Flint &amp; Flame!</h1>
         <br/>
        <img {{bind-attr src="product_icon"}} alt="Products" /> <span class="product-count">There are {{#link-to 'products'}}{{productsCount}} products{{/link-to}} available.</span> &nbsp;&nbsp;&nbsp;<span class="meta-italic">Last updated {{time}}</span>
+        <br/>
+        <h3>Check out these great deals!</h3>
+        <div class="row">
+            {{#each onSale}}
+            <div class="col-md-4">
+               <img {{bind-attr src="image"}} alt="{{title}}" />
+                <h2>{{title}}</h2>
+                <p>{{#link-to 'product' this class="btn btn-success"}}Buy for ${{price}}{{/link-to}}</p>
+            </div>
+            {{/each}}
+        </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="about">

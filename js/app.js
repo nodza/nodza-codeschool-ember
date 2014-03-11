@@ -20,6 +20,16 @@ App.IndexController = Ember.ArrayController.extend({
 //        return this.get('length');
 //    }.property('length'),
 
+    onSale: function() {
+        // Return only products that are on sale
+//        return this.filter(function(product) {
+//            return product.get('isOnSale');
+//        });
+        // Or you can filter like this
+        return this.filterBy('isOnSale', true).slice(0,3);
+
+    }.property('@each.isOnSale'), // Watch for any changes and refresh
+
     product_icon: 'images/box.png',
     time: function() {
         return (new Date()).toDateString()
@@ -126,7 +136,7 @@ App.Product.FIXTURES = [
         title: 'Brush',
         price: 29,
         description: 'Brush ante ipsum primis in faucibus. Sed semper eros ipsum, in condimentum leo pulvinar id. Aliquam egestas ut mi non vestibulum. Phasellus laoreet at enim vitae porttitor. Mauris pulvinar auctor justo, nec pulvinar dui. Ut placerat pulvinar dolor, ac lobortis purus. Proin ornare eget odio ac facilisis.',
-        isOnSale: false,
+        isOnSale: true,
         image: 'http://placehold.it/250/000080/ffffff'
     }
 ];

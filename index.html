@@ -43,7 +43,11 @@
             <div class="col-md-4">
                <img {{bind-attr src="image"}} alt="{{title}}" />
                 <h2>{{title}}</h2>
-                <p>{{#link-to 'product' this class="btn btn-success"}}Buy for ${{price}}{{/link-to}}</p>
+                {{#link-to 'products.onsale' class="btn btn-warning btn-xs"}}On Sale{{/link-to}}
+                <br/>
+                <br/>
+                <p>{{#link-to 'product' this class="btn btn-success btn-lg"}}Buy for ${{price}}{{/link-to}}</p>
+                <br/>
             </div>
             {{/each}}
         </div>
@@ -108,6 +112,42 @@
             <br>
             <br>
     </script>
+
+    <script type="text/x-handlebars" data-template-name="products/onsale">
+        <h1>On Sale</h1>
+        <ul class="list-unstyled">
+            {{#each}}
+            <hr/>
+            <br/>
+            <li class="row">
+                <div class="col-md-3">
+                    <img {{bind-attr src="image"}} />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <h2>{{title}}</h2>
+                    <p class="product-description">{{description}}</p>
+                    <br>
+                    <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
+                    <br/>
+                    <hr/>
+                    <h3>Reviews</h3>
+                    <ul class="list-unstyled">
+                        {{#each reviews}}
+                        <li>{{text}}</li>
+                        {{else}}
+                        <li>
+                            <p class="text-muted"><em>There are no reviews yet. Be the first to write one.</em></p>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li><br/>
+            {{/each}}
+
+        </ul>
+    </script>
+
 
     <script src="js/libs/jquery-1.10.2.js"></script>
     <script src="js/libs/handlebars-1.1.2.js"></script>

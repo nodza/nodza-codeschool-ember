@@ -6,6 +6,7 @@ App.Router.map(function() {
 	this.route('about');
     this.resource('products', function() {
       this.resource('product', {path: '/:product_id'});
+        this.route('onsale');
     });
 });
 
@@ -66,6 +67,12 @@ App.ProductsRoute = Ember.Route.extend({
 App.ProductRoute = Ember.Route.extend({
     model: function(params) {
         return this.store.find('product', params.product_id);
+    }
+});
+
+App.ProductsOnsaleRoute = Ember.Route.extend({
+    model: function() {
+        return this.modelFor('products').filterBy('isOnSale'); // modelFor creates a reference to parent model
     }
 });
 // <!-- /ROUTES -->

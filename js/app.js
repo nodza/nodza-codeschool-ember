@@ -93,6 +93,17 @@ App.Review = DS.Model.extend({
 });
 // <!-- /MODELS -->
 
+// <!-- COMPONENTS -->
+App.ProductDetailsComponent = Ember.Component.extend({
+    reviewsCount: Ember.computed.alias('product.reviews.length'),
+    hasReviews: function() {
+        return this.get('reviewsCount') > 0;
+    }.property('reviewsCount')
+});
+
+
+// <!-- /COMPONENTS -->
+
 
 // <!-- FIXTURES -->
 App.Product.FIXTURES = [

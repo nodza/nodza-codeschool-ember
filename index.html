@@ -53,6 +53,9 @@
         <br/>
         <p>{{#link-to 'product' this class="btn btn-success btn-lg"}}Buy for ${{price}}{{/link-to}}</p>
         <br/>
+        {{#if hasReviews}}
+            <p class="'text-muted">Read all {{reviewsCount}} reviews.</p>
+        {{/if}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="about">

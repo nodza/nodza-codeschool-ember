@@ -100,10 +100,16 @@ App.ProductDetailsComponent = Ember.Component.extend({
         return this.get('reviewsCount') > 0;
     }.property('reviewsCount')
 });
-
-
 // <!-- /COMPONENTS -->
 
+// <!-- VIEWS -->
+App.ProductView = Ember.View.extend({
+    classNames: ['row'],
+    classNameBindings:['isOnSale'],
+    isOnSale: Ember.computed.alias('controller.isOnSale')
+});
+
+// <!-- /VIEWS -->
 
 // <!-- FIXTURES -->
 App.Product.FIXTURES = [

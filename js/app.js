@@ -48,6 +48,11 @@ App.AboutController = Ember.Controller.extend({
 App.ProductsController = Ember.ArrayController.extend({
    sortProperties: ['title']
 });
+
+App.ReviewsController = Ember.ArrayController.extend({
+   sortProperties: ['reviewedAt'],
+    sortAscending: false
+});
 // <!-- /CONTROLLERS -->
 
 // <!-- ROUTES -->

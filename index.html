@@ -101,7 +101,7 @@
                     <br>
                     <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
                     <br/>
-                   {{partial 'reviews'}}
+                   {{render 'reviews' reviews}}
                 </div>
             </div>
             <br>
@@ -118,11 +118,11 @@
         </ul>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="_reviews">
+    <script type="text/x-handlebars" data-template-name="reviews">
         <hr/>
         <h3>Reviews</h3>
         <ul class="list-unstyled">
-            {{#each reviews}}
+            {{#each}}
             <li>{{text}}</li>
             {{else}}
             <li>

@@ -50,25 +50,24 @@ App.ProductsController = Ember.ArrayController.extend({
 });
 
 App.ProductController = Ember.ObjectController.extend({
-    text: '',
+    review: function() {
+        return this.store.createRecord('review', {
+           product: this.get('model')
+        });
+    }.property('model'),
     actions: {
         createReview: function() {
-            // Step1: Build a new Review object
-            var review = this.store.createRecord('review', {
-                text: this.get('text'),
-                product: this.get('model'),
-                reviewedAt: new Date()
-              });
             var controller = this; // Promise
             // Step2: Save the Review
-            review.save().then(function(review) {
-                controller.set('text', '');
+            this.get('review').set('reviewedAt', new Date());
+            this.get('review').save().then(function(review) {
                 controller.get('model.reviews').addObject(review);
             });
             // Step3: Clear out the text variable
             console.log('createReview Called!');
         }
-    }
+    },
+    isNotReviewed: Ember.computed.alias('review.isNew')
 });
 
 App.ReviewsController = Ember.ArrayController.extend({

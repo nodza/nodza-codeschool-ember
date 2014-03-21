@@ -102,17 +102,18 @@
                     <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
                     <br/>
                    {{render 'reviews' reviews}}
-                    <br/>
+                   {{#if isNotReviewed}}
                     <br/>
                     <div class="new-review">
                         <h3>Review {{title}}</h3>
-                        {{#if text}}
-                            <p class="text-muted">{{text}}</p>
+                        {{#if review.text}}
+                            <p class="text-muted">{{review.text}}</p>
                         {{/if}}
-                        {{textarea valueBinding='text'}}
+                        {{textarea valueBinding='review.text'}}
                         <br/>
                         <button {{action 'createReview'}} class='btn btn-primary'>Review</button>
                     </div>
+                    {{/if}}
                 </div>
 
             </div>

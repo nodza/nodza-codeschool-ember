@@ -135,7 +135,22 @@ App.ProductView = Ember.View.extend({
     isOnSale: Ember.computed.alias('controller.isOnSale')
 });
 
+App.ReviewView = Ember.View.extend({
+    isExpanded: false,
+    classNameBindings: ['isExpanded', 'readMore'],
+    click: function() {
+        this.toggleProperty('isExpanded');
+    },
+    readMore: Ember.computed.gt('length', 140)
+});
+
 // <!-- /VIEWS -->
+
+// <!-- HELPERS -->
+Ember.Handlebars.registerBoundHelper('markdown', function(text) {
+    return new Handlebars.SafeString(markdown.toHTML(text));
+});
+// <!-- / HELPERS -->
 
 // <!-- FIXTURES -->
 App.Product.FIXTURES = [
@@ -195,7 +210,7 @@ App.Review.FIXTURES = [
     {
         id: 100,
         product: 2,
-        text: "Best. Kindling. EVER!"
+        text: "Best. Kindling. EVER! Malesuada fames ac ante ipsum primis in faucibus. Sed semper eros ipsum, in condimentum leo pulvinar id. Aliquam egestas ut mi non vestibulum. Phasellus laoreet at enim vitae porttitor. Mauris pulvinar auctor justo, nec pulvinar dui. Ut placerat pulvinar dolor, ac lobortis purus. Proin ornare eget odio ac facilisis. Malesuada fames ac ante ipsum primis in faucibus. Sed semper eros ipsum, in condimentum leo pulvinar id. Aliquam egestas ut mi non vestibulum. Phasellus laoreet at enim vitae porttitor. Mauris pulvinar auctor justo, nec pulvinar dui. Ut placerat pulvinar dolor, ac lobortis purus. Proin ornare eget odio ac facilisis. Malesuada fames ac ante ipsum primis in faucibus. Sed semper eros ipsum, in condimentum leo pulvinar id. Aliquam egestas ut mi non vestibulum. Phasellus laoreet at enim vitae porttitor. Mauris pulvinar auctor justo, nec pulvinar dui. Ut placerat pulvinar dolor, ac lobortis purus. Proin ornare eget odio ac facilisis."
     },
     {
         id: 101,
@@ -204,4 +219,8 @@ App.Review.FIXTURES = [
     }
 ];
 // <!-- /FIXTURES -->
+
+Ember.Handlebars.registerBoundHelper('money', function(value) {
+    return accounting.formatMoney(value/100);
+});
 

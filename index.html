@@ -102,7 +102,19 @@
                     <p><button class="btn btn-success">Buy for ${{price}}</button> </p>
                     <br/>
                    {{render 'reviews' reviews}}
+                    <br/>
+                    <br/>
+                    <div class="new-review">
+                        <h3>Review {{title}}</h3>
+                        {{#if text}}
+                            <p class="text-muted">{{text}}</p>
+                        {{/if}}
+                        {{textarea valueBinding='text'}}
+                        <br/>
+                        <button {{action 'createReview'}} class='btn btn-primary'>Review</button>
+                    </div>
                 </div>
+
             </div>
             <br>
             <br>

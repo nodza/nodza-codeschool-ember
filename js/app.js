@@ -49,6 +49,28 @@ App.ProductsController = Ember.ArrayController.extend({
    sortProperties: ['title']
 });
 
+App.ProductController = Ember.ObjectController.extend({
+    text: '',
+    actions: {
+        createReview: function() {
+            // Step1: Build a new Review object
+            var review = this.store.createRecord('review', {
+                text: this.get('text'),
+                product: this.get('model'),
+                reviewedAt: new Date()
+              });
+            var controller = this; // Promise
+            // Step2: Save the Review
+            review.save().then(function(review) {
+                controller.set('text', '');
+                controller.get('model.reviews').addObject(review);
+            });
+            // Step3: Clear out the text variable
+            console.log('createReview Called!');
+        }
+    }
+});
+
 App.ReviewsController = Ember.ArrayController.extend({
    sortProperties: ['reviewedAt'],
     sortAscending: false
